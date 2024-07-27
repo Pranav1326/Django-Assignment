@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titanic Analysis</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Titanic Dataset Analysis</h1>
+        <div class="card mb-4">
+            <div class="card-header">
+                Summary
+            </div>
+            <div class="card-body">
+                <p><strong>Total Passengers:</strong> {{ analysis.total_passengers }}</p>
+                <p><strong>Survival Rate:</strong> {{ analysis.survival_rate }}%</p>
+                <p><strong>Average Age:</strong> {{ analysis.average_age }}</p>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                Class Distribution
+            </div>
+            <div class="card-body">
+                <ul class="list-group">
+                    {% for pclass, count in analysis.class_distribution.items %}
+                    <li class="list-group-item">{{ pclass }}: {{ count }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                Embarked Distribution
+            </div>
+            <div class="card-body">
+                <ul class="list-group">
+                    {% for embarked, count in analysis.embarked_distribution.items %}
+                    <li class="list-group-item">{{ embarked }}: {{ count }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
